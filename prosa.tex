@@ -1,0 +1,25 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage[ngerman]{aloha}
+
+\begin{document}
+
+\begin{center}
+  \Huge Hardwarepraktikum \\
+  \large Andre Löffler, Fabian Helmschrott, Nils Wisiol \\
+  \today
+\end{center}
+
+
+\section*{Aufgabe A}
+
+\begin{enumerate}
+ \item Die wesenentliche Information der Signale befindet sich im Frequenzbereich der menschlichen Sprache, also ca. 100 bis 5000 Hz. Die Unterschiede zwischen den Aufnahmen sind, dass die Kinderstimme besonders hohe Frequenzen erzeugt, nämlich bis zu 7kHz, wärend Gandalf besonders niedrige Frequenz verwendet, nämlich um 100Hz.
+ \item Die Qualität sinkt im allgemeinen, da Informationen verloren gehen. \texttt{run.wav} ist mit 3,5kHz noch verständlich. \texttt{ring.wav} ist mit 1,5kHz noch verständlich. \texttt{aloha.wav} ist mit 1kHz noch verständlich. Ausblenden geht bei \texttt{run.wav} einfach, da die Hintergrundgeräusche hochfrequent sind.
+ \item Erhöhung in ein Vielfaches: keine Änderung. Sonstige Erhöhung: geringfügige Verschlechterung durch Interpolation. Verringerung: Verschlechterung durch Verlust von Information. Eine Überabtastung liegt bei Erhöhung der Abtastrate vor, denn dann können Frequenzen erfasst werden, die vorher nicht erfasst werden konnten. Eine Unterabtastung liegt bei Verringerung der Abtastrate vor, wenn zuvor hochfrequente Signale gespeichert wurden. Die Dateigröße ist proportional zur Abtastrate.
+ \item Man benötigt 3 bit bei \texttt{run.wav}, 5 bit bei \texttt{ring.wav}, 4 bit bei \texttt{aloha.wav}. Die Grenze ist unterschiedlich.
+\end{enumerate}
+
+
+\end{document}
