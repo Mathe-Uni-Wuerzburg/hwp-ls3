@@ -1,7 +1,7 @@
 \documentclass[a4paper,10pt]{scrartcl}
 \usepackage[utf8x]{inputenc}
 \usepackage{enumerate}
-\usepackage[ngerman]{aloha}
+\usepackage[ngerman]{babel}
 
 \begin{document}
 
@@ -14,12 +14,33 @@
 
 \section*{Aufgabe A}
 
+\subsection*{Aufgabe 1}
 \begin{enumerate}
  \item Die wesenentliche Information der Signale befindet sich im Frequenzbereich der menschlichen Sprache, also ca. 100 bis 5000 Hz. Die Unterschiede zwischen den Aufnahmen sind, dass die Kinderstimme besonders hohe Frequenzen erzeugt, nämlich bis zu 7kHz, wärend Gandalf besonders niedrige Frequenz verwendet, nämlich um 100Hz.
  \item Die Qualität sinkt im allgemeinen, da Informationen verloren gehen. \texttt{run.wav} ist mit 3,5kHz noch verständlich. \texttt{ring.wav} ist mit 1,5kHz noch verständlich. \texttt{aloha.wav} ist mit 1kHz noch verständlich. Ausblenden geht bei \texttt{run.wav} einfach, da die Hintergrundgeräusche hochfrequent sind.
  \item Erhöhung in ein Vielfaches: keine Änderung. Sonstige Erhöhung: geringfügige Verschlechterung durch Interpolation. Verringerung: Verschlechterung durch Verlust von Information. Eine Überabtastung liegt bei Erhöhung der Abtastrate vor, denn dann können Frequenzen erfasst werden, die vorher nicht erfasst werden konnten. Eine Unterabtastung liegt bei Verringerung der Abtastrate vor, wenn zuvor hochfrequente Signale gespeichert wurden. Die Dateigröße ist proportional zur Abtastrate.
  \item Man benötigt 3 bit bei \texttt{run.wav}, 5 bit bei \texttt{ring.wav}, 4 bit bei \texttt{aloha.wav}. Die Grenze ist unterschiedlich.
 \end{enumerate}
+
+\subsection*{Aufgabe 2}
+\begin{enumerate}
+ \setcounter{enumi}{3}
+ \item Ja, der Fehler macht sich bemerkbar. Deutliche Verschlechterung bereits bei 1\%, völlig unverständlich bei 10\% (Codelänge: 4). Bei Codelänge 64 ist das Signal bei 10\% noch schlecht verständlich. 64er Codes haben höhere Redundanz (größere Hamming-Distanz).
+ \item Signale der anderen sind vom starken Signal überlagert. Kann prinzipiell auch in der Realität auftreten. Daher sollte man die Signale noch für jeden Teilnehmer verschlüsseln. Bei UMTS teilt die Zelle dem Empfänger mit, wie laut er senden soll.
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+\begin{enumerate}
+ \item Das Codewort für \texttt{1010} lautet \texttt{1010100}.
+ \item Die allgemeine Implementierung ist in allen Fällen schneller. Die erzeugten Codeworte waren immer gleich.
+ \item Man erhält \texttt{1010000}
+ \item Bei der ersten Folge wurde kein Bit verfälscht, bei der zweiten Folge wurde das letzte Bit verfälscht. Restfehlerwahrscheinlichkeit beträgt laut Infü-Skript
+	\[ p_{RK} = 1 - \sum_{i=0}^\eta { n \choose i } p_b^i(1-p_b)^{n-i} = 1 - { n \choose 0 } p_b^0(1-p_b)^n - { n \choose 1 } p_b (1-p_b)^{n-1} = \]
+	\[ = 1 - (1 - p_b)^n - n p_b (1-p_b)^{n-1} \]
+	Für \(p_b = 0,01\) ergibt sich also eine Restfehlerwahrscheinlichkeit von \(0,002\) und für \(p_b = 0,001\) eine von \(2 \cdot 10^{-5}\).
+ \item Fehlertyp 2 verursacht weniger Störungen, geringere Bitfehlerwahrscheinlichkeit sorgt für bessere Übertragung. \texttt{wavplay} durch \texttt{sound} ersetzt, da \texttt{wavplay} nicht Linux-kompartibel.
+\end{enumerate}
+
 
 
 \end{document}
