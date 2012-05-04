@@ -35,6 +35,8 @@ function aufgabeA25()
     m3strich = despread(C,w3);
     
     % abspielen
+    sound(relinquant(m1strich',4), 4000)
+    sound(relinquant(m2strich',4), 4000)
     sound(relinquant(m3strich',4), 4000)
 
 end

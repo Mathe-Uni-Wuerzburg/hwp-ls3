@@ -23,7 +23,6 @@ function aufgabeA32
        end
        
        fprintf('Hamming %d, Allgemein %d, Differenz %d\n', ham, alg, ham-alg);
-       x
     end
 end
 
