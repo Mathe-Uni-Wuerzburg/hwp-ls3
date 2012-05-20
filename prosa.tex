@@ -87,15 +87,15 @@ Beispielaufruf: \texttt{schieberegisterHamming([1 0 1 0])}
 Beispielaufruf: \texttt{aufgabeA32} vergleicht die Zeiten und gibt die Differenz aus.
  \item Solange die höchste Potenz des Dividenten größer ist als die des Divisors, wird deren Differenz mutlipliziert mit dem Divisor vom Dividenten abgezogen. Dies entspricht genau der Polynomdivision, am Ende ist der Divident gerade der Rest. Dabei ist zur Vereinfachung der Implementierung das höchstwertige Bit im Vektor ganz rechts notiert.
 
-Man erhält \texttt{1010000}
+Man erhält \texttt{1010011}
 
-Beispielaufruf: \texttt{polydiv([0 1 0 1],[0 0 1 0],7)} berechnet das gesuchte Codewort.
+Beispielaufruf: \texttt{polydiv([0 1 0 1],[1 1 0 1],7)} berechnet das gesuchte Codewort.
  \item Bei der ersten Folge wurde kein Bit verfälscht, bei der zweiten Folge wurde das letzte Bit verfälscht. Die Restfehlerwahrscheinlichkeit beträgt laut Informationsübertragung-Skript
 	\[ p_{RK} = 1 - \sum_{i=0}^\eta { n \choose i } p_b^i(1-p_b)^{n-i} = 1 - { n \choose 0 } p_b^0(1-p_b)^n - { n \choose 1 } p_b (1-p_b)^{n-1} = \]
 	\[ = 1 - (1 - p_b)^n - n p_b (1-p_b)^{n-1} \]
-	Für \(p_b = 0,01\) ergibt sich also eine Restfehlerwahrscheinlichkeit von \(0,002\) und für \(p_b = 0,001\) eine von \(2 \cdot 10^{-5}\).
+	Für \(p_b = 0,01\) ergibt sich also eine Restfehlerwahrscheinlichkeit von \(0,002\) und für \(p_b = 0,001\) eine von \(2 \cdot 10^{-5}\). Das erste Wort wird als fehlerfrei erkannt, beim zweiten Wort wird ein Fehler an der fünften Stelle erkannt.
 
-Beispielaufruf: \texttt{meggitDecodierer([1 0 1 0 1 1 0], [0 0 1 0])}
+Beispielaufruf: \texttt{meggitDecodierer([1 0 1 0 1 1 0], [1 1 0 1])}
  \item Fehlertyp 2 verursacht weniger Störungen, geringere Bitfehlerwahrscheinlichkeit sorgt für bessere Übertragung. In unserer Implementierung mussten wir \texttt{wavplay} durch \texttt{sound} ersetzen, da \texttt{wavplay} nicht Linux-kompartibel ist.
 
 Beispielaufruf: \texttt{aufgabeA35}
