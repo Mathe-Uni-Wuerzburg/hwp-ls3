@@ -68,13 +68,6 @@ Maschine A erreichte mit dieser Implementierung im kernel space Modus eine Perfo
     def learn_and_forward(self, dpid, inport, packet, buf, bufid):
         """Learn MAC src port mapping, then flood or send unicast."""
 
-        # Initial hub behavior: flood packet out everything but input port.
-        # Comment out the line below when starting the exercise.
-        #self.send_openflow(dpid, bufid, buf, openflow.OFPP_FLOOD, inport)
-
-        # Starter psuedocode for learning switch exercise below: you'll need to
-        # replace each pseudocode line with more specific Python code.
-
         # Learn the port for the source MAC
         if (not (dpid in self.dpid_mac_to_port.keys())):
             self.dpid_mac_to_port[dpid] = {}
