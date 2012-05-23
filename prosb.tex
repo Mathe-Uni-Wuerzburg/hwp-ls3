@@ -14,6 +14,10 @@
 
 \section*{Aufgabe B}
   Unser Testsetup für diese Aufgabe war wie folgt: Zwei Maschinen wurden verwendet. Maschine A ist ein Linux-Host, Maschine B ist ein Windows-Host.
+\subsection*{Was ist der Unterschied zwischen Packet- und Flow-Switching?}
+  Beim Packet-Switching werden die zu \"ubertragenden Daten unabh\"angig von Struktur in Blocks verpackt. Beim Flow-Switching werden die Datenstr\"ome analysiert und je nach Bedarf die Ressourcen frei gemacht oder umverteilt.
+\subsection*{Unterstützt OpenFlow das Packet-Switching?}
+  OpenFlow ist in der Lage verschiedene Formen des Switching zu unterst\"utzen, darunter auch Packet- und Circuit-Switching. 
 \subsection*{Bekommt h2 eine Antwort? Warum?}
   Es kommt keine Antwort, da noch keine Flows bekannt sind. Dieses Ergebnis konnten wir mit beiden Maschinen realisieren.
 \subsection*{Warum bekommt h2 nun eine Antwort?}
@@ -63,13 +67,6 @@ Maschine A erreichte mit dieser Implementierung im kernel space Modus eine Perfo
 \begin{verbatim}
     def learn_and_forward(self, dpid, inport, packet, buf, bufid):
         """Learn MAC src port mapping, then flood or send unicast."""
-
-        # Initial hub behavior: flood packet out everything but input port.
-        # Comment out the line below when starting the exercise.
-        #self.send_openflow(dpid, bufid, buf, openflow.OFPP_FLOOD, inport)
-
-        # Starter psuedocode for learning switch exercise below: you'll need to
-        # replace each pseudocode line with more specific Python code.
 
         # Learn the port for the source MAC
         if (not (dpid in self.dpid_mac_to_port.keys())):
